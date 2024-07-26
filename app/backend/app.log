@@ -1,0 +1,197 @@
+2024-05-30 18:01:15,707 - INFO - Starting API....
+2024-05-30 18:01:24,942 - INFO - 127.0.0.1:56001 - "GET / HTTP/1.1"
+2024-05-30 18:01:24,964 - INFO - 127.0.0.1:56001 - "GET / HTTP/1.1" 200
+2024-05-30 18:01:25,384 - INFO - 127.0.0.1:56001 - "GET /favicon.ico HTTP/1.1"
+2024-05-30 18:01:25,386 - INFO - 127.0.0.1:56001 - "GET /favicon.ico HTTP/1.1" 404
+2024-05-30 18:06:51,502 - INFO - Starting API....
+2024-05-30 18:07:01,541 - INFO - Starting API....
+2024-05-30 18:07:03,922 - INFO - Starting API....
+2024-05-30 18:07:08,459 - INFO - Starting API....
+2024-05-30 18:07:10,261 - INFO - Starting API....
+2024-05-30 18:07:11,932 - INFO - Starting API....
+2024-05-30 18:07:13,993 - INFO - Starting API....
+2024-05-30 18:07:22,983 - INFO - Starting API....
+2024-05-30 18:08:52,439 - INFO - 127.0.0.1:56772 - "POST /auth/token HTTP/1.1"
+2024-05-30 18:08:52,450 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\Fastapi test\app\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-05-30 18:08:52,693 - INFO - 127.0.0.1:56772 - "POST /auth/token HTTP/1.1" 200
+2024-05-30 18:08:52,711 - INFO - 127.0.0.1:56772 - "GET /auth/admin HTTP/1.1"
+2024-05-30 18:08:52,716 - INFO - 127.0.0.1:56772 - "GET /auth/admin HTTP/1.1" 200
+2024-05-30 18:08:52,763 - INFO - 127.0.0.1:56772 - "GET /auth/styles.css HTTP/1.1"
+2024-05-30 18:08:52,764 - INFO - 127.0.0.1:56772 - "GET /auth/styles.css HTTP/1.1" 403
+2024-05-30 18:08:52,768 - INFO - 127.0.0.1:56773 - "GET /auth/scripts.js HTTP/1.1"
+2024-05-30 18:08:52,769 - INFO - 127.0.0.1:56773 - "GET /auth/scripts.js HTTP/1.1" 403
+2024-05-30 18:08:54,427 - INFO - 127.0.0.1:56773 - "GET /addempdata HTTP/1.1"
+2024-05-30 18:08:54,430 - INFO - 127.0.0.1:56773 - "GET /addempdata HTTP/1.1" 200
+2024-05-30 18:08:56,946 - INFO - 127.0.0.1:56773 - "GET /viewemp HTTP/1.1"
+2024-05-30 18:08:56,951 - INFO - 127.0.0.1:56773 - "GET /viewemp HTTP/1.1" 200
+2024-05-30 18:08:57,018 - INFO - 127.0.0.1:56773 - "GET /user/ HTTP/1.1"
+2024-05-30 18:08:57,060 - INFO - 127.0.0.1:56773 - "GET /user/ HTTP/1.1" 200
+2024-05-30 18:09:00,812 - INFO - 127.0.0.1:56773 - "GET /viewsingleemp HTTP/1.1"
+2024-05-30 18:09:00,818 - INFO - 127.0.0.1:56773 - "GET /viewsingleemp HTTP/1.1" 200
+2024-05-30 18:09:03,881 - INFO - 127.0.0.1:56773 - "GET /user/4 HTTP/1.1"
+2024-05-30 18:09:03,887 - INFO - 127.0.0.1:56773 - "GET /user/4 HTTP/1.1" 200
+2024-06-01 14:09:50,693 - INFO - Starting API....
+2024-06-01 14:10:35,000 - INFO - 127.0.0.1:61519 - "GET / HTTP/1.1"
+2024-06-01 14:10:35,025 - INFO - 127.0.0.1:61519 - "GET / HTTP/1.1" 200
+2024-06-01 14:10:35,503 - INFO - 127.0.0.1:61519 - "GET /favicon.ico HTTP/1.1"
+2024-06-01 14:10:35,506 - INFO - 127.0.0.1:61519 - "GET /favicon.ico HTTP/1.1" 404
+2024-06-01 14:10:54,537 - INFO - 127.0.0.1:61530 - "POST /auth/token HTTP/1.1"
+2024-06-01 14:10:54,560 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\Fastapi test\app\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-06-01 14:10:54,808 - INFO - 127.0.0.1:61530 - "POST /auth/token HTTP/1.1" 200
+2024-06-01 14:10:54,823 - INFO - 127.0.0.1:61530 - "GET /auth/employee HTTP/1.1"
+2024-06-01 14:10:54,829 - INFO - 127.0.0.1:61530 - "GET /auth/employee HTTP/1.1" 200
+2024-06-01 14:10:54,905 - INFO - 127.0.0.1:61530 - "GET /auth/scripts.js HTTP/1.1"
+2024-06-01 14:10:54,907 - INFO - 127.0.0.1:61531 - "GET /auth/styles.css HTTP/1.1"
+2024-06-01 14:10:54,908 - INFO - 127.0.0.1:61530 - "GET /auth/scripts.js HTTP/1.1" 403
+2024-06-01 14:10:54,909 - INFO - 127.0.0.1:61531 - "GET /auth/styles.css HTTP/1.1" 403
+2024-06-01 14:11:59,021 - INFO - 127.0.0.1:61544 - "GET /auth/employee HTTP/1.1"
+2024-06-01 14:11:59,099 - INFO - 127.0.0.1:61544 - "GET /auth/employee HTTP/1.1" 200
+2024-06-01 14:11:59,149 - INFO - 127.0.0.1:61544 - "GET /auth/styles.css HTTP/1.1"
+2024-06-01 14:11:59,152 - INFO - 127.0.0.1:61544 - "GET /auth/styles.css HTTP/1.1" 403
+2024-06-01 14:11:59,154 - INFO - 127.0.0.1:61545 - "GET /auth/scripts.js HTTP/1.1"
+2024-06-01 14:11:59,157 - INFO - 127.0.0.1:61545 - "GET /auth/scripts.js HTTP/1.1" 403
+2024-06-01 14:12:02,992 - INFO - 127.0.0.1:61547 - "POST /auth/logout HTTP/1.1"
+2024-06-01 14:12:02,993 - INFO - 127.0.0.1:61547 - "POST /auth/logout HTTP/1.1" 200
+2024-06-01 14:12:04,049 - INFO - 127.0.0.1:61547 - "GET / HTTP/1.1"
+2024-06-01 14:12:04,050 - INFO - 127.0.0.1:61547 - "GET / HTTP/1.1" 200
+2024-06-01 14:12:10,243 - INFO - 127.0.0.1:61548 - "POST /auth/token HTTP/1.1"
+2024-06-01 14:12:10,455 - INFO - 127.0.0.1:61548 - "POST /auth/token HTTP/1.1" 200
+2024-06-01 14:12:10,471 - INFO - 127.0.0.1:61548 - "GET /auth/admin HTTP/1.1"
+2024-06-01 14:12:10,477 - INFO - 127.0.0.1:61548 - "GET /auth/admin HTTP/1.1" 200
+2024-06-01 14:12:10,521 - INFO - 127.0.0.1:61548 - "GET /auth/styles.css HTTP/1.1"
+2024-06-01 14:12:10,522 - INFO - 127.0.0.1:61549 - "GET /auth/scripts.js HTTP/1.1"
+2024-06-01 14:12:10,523 - INFO - 127.0.0.1:61548 - "GET /auth/styles.css HTTP/1.1" 403
+2024-06-01 14:12:10,524 - INFO - 127.0.0.1:61549 - "GET /auth/scripts.js HTTP/1.1" 403
+2024-06-01 14:12:14,355 - INFO - 127.0.0.1:61552 - "GET /updateempdata HTTP/1.1"
+2024-06-01 14:12:14,362 - INFO - 127.0.0.1:61552 - "GET /updateempdata HTTP/1.1" 200
+2024-06-01 14:12:23,012 - INFO - 127.0.0.1:61554 - "PUT /user/update HTTP/1.1"
+2024-06-01 14:12:23,237 - INFO - 127.0.0.1:61554 - "PUT /user/update HTTP/1.1" 200
+2024-06-01 14:12:27,346 - INFO - 127.0.0.1:61554 - "POST /auth/logout HTTP/1.1"
+2024-06-01 14:12:27,347 - INFO - 127.0.0.1:61554 - "POST /auth/logout HTTP/1.1" 200
+2024-06-01 14:12:28,334 - INFO - 127.0.0.1:61554 - "GET / HTTP/1.1"
+2024-06-01 14:12:28,335 - INFO - 127.0.0.1:61554 - "GET / HTTP/1.1" 200
+2024-06-01 14:12:34,690 - INFO - 127.0.0.1:61556 - "POST /auth/token HTTP/1.1"
+2024-06-01 14:12:34,900 - INFO - 127.0.0.1:61556 - "POST /auth/token HTTP/1.1" 200
+2024-06-01 14:12:34,917 - INFO - 127.0.0.1:61556 - "GET /auth/manager HTTP/1.1"
+2024-06-01 14:12:34,922 - INFO - 127.0.0.1:61556 - "GET /auth/manager HTTP/1.1" 200
+2024-06-01 14:12:34,968 - INFO - 127.0.0.1:61556 - "GET /auth/styles.css HTTP/1.1"
+2024-06-01 14:12:34,969 - INFO - 127.0.0.1:61556 - "GET /auth/styles.css HTTP/1.1" 403
+2024-06-01 14:12:34,970 - INFO - 127.0.0.1:61557 - "GET /auth/scripts.js HTTP/1.1"
+2024-06-01 14:12:34,971 - INFO - 127.0.0.1:61557 - "GET /auth/scripts.js HTTP/1.1" 403
+2024-06-01 14:12:56,838 - INFO - 127.0.0.1:61559 - "GET /viewunassigned HTTP/1.1"
+2024-06-01 14:12:56,842 - INFO - 127.0.0.1:61559 - "GET /viewunassigned HTTP/1.1" 200
+2024-06-01 14:12:59,618 - INFO - 127.0.0.1:61559 - "POST /user/skill/unassigned HTTP/1.1"
+2024-06-01 14:12:59,629 - INFO - 127.0.0.1:61559 - "POST /user/skill/unassigned HTTP/1.1" 200
+2024-06-01 14:13:21,578 - INFO - 127.0.0.1:61563 - "GET /viewunassigned HTTP/1.1"
+2024-06-01 14:13:21,581 - INFO - 127.0.0.1:61563 - "GET /viewunassigned HTTP/1.1" 200
+2024-06-01 14:13:24,187 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1"
+2024-06-01 14:13:24,194 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1" 404
+2024-06-01 14:13:25,391 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1"
+2024-06-01 14:13:25,398 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1" 404
+2024-06-01 14:13:26,080 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1"
+2024-06-01 14:13:26,085 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1" 404
+2024-06-01 14:13:29,879 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1"
+2024-06-01 14:13:29,884 - INFO - 127.0.0.1:61563 - "POST /user/skill/unassigned HTTP/1.1" 404
+2024-06-01 14:13:33,291 - INFO - 127.0.0.1:61566 - "GET /viewemp HTTP/1.1"
+2024-06-01 14:13:33,297 - INFO - 127.0.0.1:61566 - "GET /viewemp HTTP/1.1" 200
+2024-06-01 14:13:33,438 - INFO - 127.0.0.1:61566 - "GET /user/ HTTP/1.1"
+2024-06-01 14:13:33,458 - INFO - 127.0.0.1:61566 - "GET /user/ HTTP/1.1" 200
+2024-06-01 14:13:37,841 - INFO - 127.0.0.1:61566 - "GET /viewunassigned HTTP/1.1"
+2024-06-01 14:13:37,844 - INFO - 127.0.0.1:61566 - "GET /viewunassigned HTTP/1.1" 200
+2024-06-01 14:13:40,058 - INFO - 127.0.0.1:61566 - "POST /user/skill/unassigned HTTP/1.1"
+2024-06-01 14:13:40,064 - INFO - 127.0.0.1:61566 - "POST /user/skill/unassigned HTTP/1.1" 404
+2024-06-01 14:14:23,345 - INFO - 127.0.0.1:61580 - "POST /user/skill/unassigned HTTP/1.1"
+2024-06-01 14:14:23,350 - INFO - 127.0.0.1:61580 - "POST /user/skill/unassigned HTTP/1.1" 404
+2024-06-01 14:14:29,165 - INFO - 127.0.0.1:61583 - "GET /viewunassigned HTTP/1.1"
+2024-06-01 14:14:29,169 - INFO - 127.0.0.1:61583 - "GET /viewunassigned HTTP/1.1" 200
+2024-06-01 14:14:31,448 - INFO - 127.0.0.1:61583 - "GET /viewemp HTTP/1.1"
+2024-06-01 14:14:31,450 - INFO - 127.0.0.1:61583 - "GET /viewemp HTTP/1.1" 200
+2024-06-01 14:14:31,506 - INFO - 127.0.0.1:61583 - "GET /user/ HTTP/1.1"
+2024-06-01 14:14:31,520 - INFO - 127.0.0.1:61583 - "GET /user/ HTTP/1.1" 200
+2024-06-01 14:16:24,033 - INFO - 127.0.0.1:61592 - "GET /viewunassigned HTTP/1.1"
+2024-06-01 14:16:24,041 - INFO - 127.0.0.1:61592 - "GET /viewunassigned HTTP/1.1" 200
+2024-06-01 14:16:39,639 - INFO - 127.0.0.1:61595 - "GET /viewskill HTTP/1.1"
+2024-06-01 14:16:39,645 - INFO - 127.0.0.1:61595 - "GET /viewskill HTTP/1.1" 200
+2024-06-01 14:16:39,697 - INFO - 127.0.0.1:61595 - "GET /skill/ HTTP/1.1"
+2024-06-01 14:16:39,704 - INFO - 127.0.0.1:61595 - "GET /skill/ HTTP/1.1" 200
+2024-06-01 15:55:52,027 - INFO - Starting API....
+2024-06-01 15:55:53,233 - INFO - 127.0.0.1:62515 - "GET / HTTP/1.1"
+2024-06-01 15:55:53,240 - INFO - 127.0.0.1:62515 - "GET / HTTP/1.1" 200
+2024-06-01 15:55:53,605 - INFO - 127.0.0.1:62515 - "GET /favicon.ico HTTP/1.1"
+2024-06-01 15:55:53,607 - INFO - 127.0.0.1:62515 - "GET /favicon.ico HTTP/1.1" 404
+2024-06-01 15:56:01,735 - INFO - 127.0.0.1:62517 - "POST /auth/token HTTP/1.1"
+2024-06-01 15:56:01,746 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\Fastapi test\app\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-06-01 15:56:01,983 - INFO - 127.0.0.1:62517 - "POST /auth/token HTTP/1.1" 200
+2024-06-01 15:56:02,000 - INFO - 127.0.0.1:62517 - "GET /auth/employee HTTP/1.1"
+2024-06-01 15:56:02,005 - INFO - 127.0.0.1:62517 - "GET /auth/employee HTTP/1.1" 200
+2024-06-01 15:56:02,041 - INFO - 127.0.0.1:62517 - "GET /auth/styles.css HTTP/1.1"
+2024-06-01 15:56:02,042 - INFO - 127.0.0.1:62518 - "GET /auth/scripts.js HTTP/1.1"
+2024-06-01 15:56:02,043 - INFO - 127.0.0.1:62517 - "GET /auth/styles.css HTTP/1.1" 403
+2024-06-01 15:56:02,044 - INFO - 127.0.0.1:62518 - "GET /auth/scripts.js HTTP/1.1" 403
+2024-06-01 15:56:03,856 - INFO - 127.0.0.1:62518 - "GET /viewskill HTTP/1.1"
+2024-06-01 15:56:03,880 - INFO - 127.0.0.1:62518 - "GET /viewskill HTTP/1.1" 200
+2024-06-01 15:56:03,941 - INFO - 127.0.0.1:62518 - "GET /skill/ HTTP/1.1"
+2024-06-01 15:56:03,951 - INFO - 127.0.0.1:62518 - "GET /skill/ HTTP/1.1" 200
+2024-06-01 15:56:08,129 - INFO - 127.0.0.1:62518 - "GET /viewskill HTTP/1.1"
+2024-06-01 15:56:08,132 - INFO - 127.0.0.1:62518 - "GET /viewskill HTTP/1.1" 200
+2024-06-01 15:56:08,176 - INFO - 127.0.0.1:62518 - "GET /skill/ HTTP/1.1"
+2024-06-01 15:56:08,184 - INFO - 127.0.0.1:62518 - "GET /skill/ HTTP/1.1" 200
+2024-06-01 15:56:34,804 - INFO - 127.0.0.1:62520 - "GET /auth/employee HTTP/1.1"
+2024-06-01 15:56:34,805 - INFO - 127.0.0.1:62520 - "GET /auth/employee HTTP/1.1" 200
+2024-06-01 15:56:34,834 - INFO - 127.0.0.1:62520 - "GET /auth/styles.css HTTP/1.1"
+2024-06-01 15:56:34,835 - INFO - 127.0.0.1:62521 - "GET /auth/scripts.js HTTP/1.1"
+2024-06-01 15:56:34,835 - INFO - 127.0.0.1:62520 - "GET /auth/styles.css HTTP/1.1" 403
+2024-06-01 15:56:34,836 - INFO - 127.0.0.1:62521 - "GET /auth/scripts.js HTTP/1.1" 403
+2024-06-01 15:56:36,529 - INFO - 127.0.0.1:62521 - "GET /viewskill HTTP/1.1"
+2024-06-01 15:56:36,544 - INFO - 127.0.0.1:62521 - "GET /viewskill HTTP/1.1" 200
+2024-06-01 15:56:36,588 - INFO - 127.0.0.1:62521 - "GET /skill/ HTTP/1.1"
+2024-06-01 15:56:36,594 - INFO - 127.0.0.1:62521 - "GET /skill/ HTTP/1.1" 200
+2024-06-01 15:56:42,606 - INFO - 127.0.0.1:62523 - "GET /viewskillunique HTTP/1.1"
+2024-06-01 15:56:42,623 - INFO - 127.0.0.1:62523 - "GET /viewskillunique HTTP/1.1" 200
+2024-06-01 15:56:42,666 - INFO - 127.0.0.1:62523 - "GET /skill/unique HTTP/1.1"
+2024-06-01 15:56:42,672 - INFO - 127.0.0.1:62523 - "GET /skill/unique HTTP/1.1" 200
+2024-07-26 22:12:45,958 - INFO - Starting API....
+2024-07-26 22:12:47,190 - INFO - 127.0.0.1:63846 - "GET / HTTP/1.1"
+2024-07-26 22:12:47,196 - INFO - 127.0.0.1:63846 - "GET / HTTP/1.1" 200
+2024-07-26 22:12:47,443 - INFO - 127.0.0.1:63846 - "GET /favicon.ico HTTP/1.1"
+2024-07-26 22:12:47,444 - INFO - 127.0.0.1:63846 - "GET /favicon.ico HTTP/1.1" 404
+2024-07-26 22:13:02,630 - INFO - 127.0.0.1:63911 - "GET /docs HTTP/1.1"
+2024-07-26 22:13:02,631 - INFO - 127.0.0.1:63911 - "GET /docs HTTP/1.1" 200
+2024-07-26 22:13:02,831 - INFO - 127.0.0.1:63911 - "GET /openapi.json HTTP/1.1"
+2024-07-26 22:13:02,850 - INFO - 127.0.0.1:63911 - "GET /openapi.json HTTP/1.1" 200
+2024-07-26 23:46:56,953 - INFO - Starting API....
+2024-07-26 23:46:58,368 - INFO - 127.0.0.1:51675 - "GET / HTTP/1.1"
+2024-07-26 23:46:58,373 - INFO - 127.0.0.1:51675 - "GET / HTTP/1.1" 200
+2024-07-26 23:46:58,544 - INFO - 127.0.0.1:51675 - "GET /favicon.ico HTTP/1.1"
+2024-07-26 23:46:58,547 - INFO - 127.0.0.1:51675 - "GET /favicon.ico HTTP/1.1" 404
+2024-07-26 23:47:07,391 - INFO - 127.0.0.1:51684 - "POST /auth/token HTTP/1.1"
+2024-07-26 23:47:07,414 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\Fastapi test\app\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-07-26 23:47:07,694 - INFO - 127.0.0.1:51684 - "POST /auth/token HTTP/1.1" 401
+2024-07-26 23:47:14,170 - INFO - 127.0.0.1:51689 - "POST /auth/token HTTP/1.1"
+2024-07-26 23:47:14,402 - INFO - 127.0.0.1:51689 - "POST /auth/token HTTP/1.1" 200
+2024-07-26 23:47:14,417 - INFO - 127.0.0.1:51689 - "GET /auth/admin HTTP/1.1"
+2024-07-26 23:47:14,422 - INFO - 127.0.0.1:51689 - "GET /auth/admin HTTP/1.1" 200
+2024-07-26 23:47:14,459 - INFO - 127.0.0.1:51689 - "GET /auth/styles.css HTTP/1.1"
+2024-07-26 23:47:14,459 - INFO - 127.0.0.1:51690 - "GET /auth/scripts.js HTTP/1.1"
+2024-07-26 23:47:14,460 - INFO - 127.0.0.1:51689 - "GET /auth/styles.css HTTP/1.1" 403
+2024-07-26 23:47:14,461 - INFO - 127.0.0.1:51690 - "GET /auth/scripts.js HTTP/1.1" 403

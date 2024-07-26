@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .form label {
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+        .form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .details-table {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .details-table th, .details-table td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Details</h2>
+        <form id="employeeForm" class="form">
+            <div class="form-group">
+                <label for="employeeId">Employee ID:</label>
+                <input type="number" id="employeeId" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Fetch Details</button>
+        </form>
+        <div id="employeeDetails" class="details-table hidden">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td id="empId"></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td id="empName"></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td id="empEmail"></td>
+                    </tr>
+                    <tr>
+                        <th>User Type</th>
+                        <td id="empUserType"></td>
+                    </tr>
+                    <tr>
+                        <th>Manager Id</th>
+                        <td id="empManagerId"></td>
+                    </tr>
+                    <tr>
+                        <th>Manager Name</th>
+                        <td id="empManagerName"></td>
+                    </tr>
+                    <tr>
+                        <th>Projects</th>
+                        <td id="empProjects"></td>
+                    </tr>
+                    <tr>
+                        <th>Skills</th>
+                        <td id="empSkills"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="errorMessage" class="message error hidden"></div>
+    </div>
+
+    <script>
+        document.getElementById('employeeForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const employeeId = document.getElementById('employeeId').value;
+            const submitButton = event.target.querySelector('button');
+            submitButton.disabled = true; // Disable button to prevent multiple submits
+            submitButton.style.backgroundColor = '#007bff'; // Maintain the blue color
+            try {
+                const response = await fetch(`/user/${employeeId}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                const data = await response.json();
+                displayEmployeeDetails(data);
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+                showErrorMessage(error.message);
+            } finally {
+                submitButton.disabled = false; // Re-enable the button
+            }
+        });
+
+        function displayEmployeeDetails(data) {
+            document.getElementById('empId').textContent = data.id || 'N/A';
+            document.getElementById('empName').textContent = data.name || 'N/A';
+            document.getElementById('empEmail').textContent = data.email || 'N/A';
+            document.getElementById('empUserType').textContent = data.role || 'N/A';
+            document.getElementById('empManagerId').textContent = data.manager_id || 'N/A';
+            document.getElementById('empManagerName').textContent = data.manager_name || 'N/A';
+            document.getElementById('empProjects').innerHTML = data.projects && data.projects.length ? 
+                data.projects.map(project => `<div>${project.name} (Id: ${project.id})</div>`).join('') : 'N/A';
+            document.getElementById('empSkills').innerHTML = data.skills && data.skills.length ? 
+                data.skills.map(skill => `<div>${skill.name} (Id: ${skill.id})</div>`).join('') : 'N/A';
+        
+            document.getElementById('employeeDetails').classList.remove('hidden');
+            document.getElementById('errorMessage').classList.add('hidden');
+        }
+        
+
+        function showErrorMessage(message) {
+            document.getElementById('errorMessage').textContent = `Error: ${message}`;
+            document.getElementById('errorMessage').classList.remove('hidden');
+            document.getElementById('employeeDetails').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

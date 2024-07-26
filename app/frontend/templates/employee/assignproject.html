@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add Employee/Manager</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0; 
+                padding:200px;
+                display:flex; 
+                justify-content:center;
+                align-items:center;
+            }
+    
+            form {
+                width: 300px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            }
+    
+            label {
+                display: block;
+                margin-top: 20px;
+            }
+    
+            
+            input[type="number"] {
+                width: auto;
+                min-width: 93%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-top: 5px;
+            }
+    
+            button[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #4CAF50;
+                color: #fff;
+                border: none;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+    
+            button[type="submit"]:hover {
+                background-color: #45a049;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <form id="assignForm" method="post">
+            <h1 style="text-align: center;">Assign Project</h1>
+            <label for="user_id">Employee ID:</label>
+            <input type="number" id="user_id" name="user_id" required>
+        
+            <label for="pid">Project ID:</label>
+            <input type="number" id="pid" name="pid" required>
+        
+            <button type="submit">Submit</button> 
+        </form>
+    
+        <script>
+            document.getElementById('assignForm').onsubmit = async function(event) {
+                // Prevent the default form submission
+                event.preventDefault();
+    
+                // Get the user_id value from the input
+                const userId = document.getElementById('user_id').value;
+                const pid = document.getElementById('pid').value;
+    
+                // Send the PUT request to the FastAPI endpoint
+                const response = await fetch('/user/project/assign', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ user_id: userId,
+                                           project_id: pid 
+                                        })
+                });
+    
+                // Handle the response
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log('Response:', responseData);
+                    alert('Project successfully assigned for user ID: ' + userId);
+                } else {
+                    console.error('Error:', response.statusText);
+                    alert('Failed to assign Project. Please try again. OR Check if the Employee has assigned Project');
+                }
+            };
+        </script>
+        <script src="" async defer></script>
+    </body>
+</html>

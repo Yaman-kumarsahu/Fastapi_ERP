@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        .filter-container label {
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .admin {
+            background-color: #ffcccc;
+        }
+        .employee {
+            background-color: #ccffcc;
+        }
+        .manager {
+            background-color: #ccccff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employees Data</h2>
+        <div class="filter-container">
+            <label for="userTypeFilter">Filter by User Type:</label>
+            <select id="userTypeFilter">
+                <option value="all">All</option>
+                <option value="admin">Admin</option>
+                <option value="employee">Employee</option>
+                <option value="manager">Manager</option>
+            </select>
+        </div>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>User Type</th>
+                    <th>Manager ID</th>
+                    <th>Manager Name</th>
+                    <th>Project ID</th>
+                    <th>Project Name</th>
+                    <th>Skills</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Employee rows will be added here dynamically -->
+            </tbody>
+        </table>
+        <div id="responseMessage"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userTypeFilter = document.getElementById('userTypeFilter');
+
+            userTypeFilter.addEventListener('change', filterEmployees);
+
+            fetch('/user/')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    displayEmployees(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+            function displayEmployees(data) {
+                const employeeTableBody = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
+                employeeTableBody.innerHTML = '';
+                data.forEach(employee => {
+                    const row = employeeTableBody.insertRow();
+                    row.insertCell(0).textContent = employee.id;
+                    row.insertCell(1).textContent = employee.name;
+                    row.insertCell(2).textContent = employee.email;
+                    row.insertCell(3).textContent = employee.role;
+                    row.insertCell(4).textContent = employee.manager_id;
+                    row.insertCell(5).textContent = employee.manager_name;
+                    row.insertCell(6).textContent = employee.project_id;
+                    row.insertCell(7).textContent = employee.project_name;
+                    row.insertCell(8).textContent = employee.skills;
+
+                    switch (employee.user_type) {
+                        case 'admin':
+                            row.classList.add('admin');
+                            break;
+                        case 'employee':
+                            row.classList.add('employee');
+                            break;
+                        case 'manager':
+                            row.classList.add('manager');
+                            break;
+                    }
+                });
+            }
+
+            function filterEmployees() {
+                const filterValue = userTypeFilter.value;
+                fetch('/user/')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (filterValue !== 'all') {
+                            data = data.filter(employee => employee.role === filterValue);
+                        }
+                        displayEmployees(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

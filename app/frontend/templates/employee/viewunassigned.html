@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        form {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form class="form" onsubmit="loginbutton(event)">
+            <label for="userid">Skill Name:</label>
+            <input type="text" id="userid" name="userid" required>
+            <button type="submit">View</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Employees Data</h2>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>User Type</th>
+                    <th>Manager ID</th>
+                    <th>Project ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Employee rows will be added here dynamically -->
+            </tbody>
+        </table>
+        <div id="responseMessage"></div>
+    </div>
+
+    <script>
+        function loginbutton(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            const formDataObj = {
+                skill_name: document.getElementById("userid").value,
+            };
+          
+            console.log(formDataObj);
+          
+            // Send formDataObj to the server using fetch
+            fetch('/user/skill/unassigned', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formDataObj),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const employeeTableBody = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
+                employeeTableBody.innerHTML = ''; // Clear existing rows
+                
+                if (data.length === 0) {
+                    alert('No employees found for the given skill.');
+                }
+
+                data.forEach(employee => {
+                    const row = employeeTableBody.insertRow();
+                    row.insertCell(0).textContent = employee.id;
+                    row.insertCell(1).textContent = employee.name;
+                    row.insertCell(2).textContent = employee.email;
+                    row.insertCell(3).textContent = employee.role;
+                    row.insertCell(4).textContent = employee.manager_id;
+                    row.insertCell(5).textContent = employee.project_id;
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);         
+            });
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

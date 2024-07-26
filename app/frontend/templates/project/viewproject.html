@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #filterContainer input {
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="filterContainer">
+            <h2>Project Data</h2>
+            <input type="number" id="managerFilter" placeholder="Enter Manager ID" /><br><br>
+        </div>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Manager ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Employee rows will be added here dynamically -->
+            </tbody>
+        </table>
+        <div id="responseMessage"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const managerFilter = document.getElementById('managerFilter');
+            const projectTableBody = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
+            let allProjects = [];
+    
+            function populateTable(projects) {
+                projectTableBody.innerHTML = '';
+                projects.forEach(project => {
+                    const row = projectTableBody.insertRow();
+                    row.insertCell(0).textContent = project.id;
+                    row.insertCell(1).textContent = project.name;
+                    row.insertCell(2).textContent = project.manager_id;
+                });
+            }
+    
+            function filterProjects() {
+                const selectedManager = managerFilter.value.trim();
+                const filteredProjects = selectedManager === '' ? allProjects : allProjects.filter(project => project.manager_id === parseInt(selectedManager));
+                populateTable(filteredProjects);
+            }
+    
+            // Fetch projects data from the server
+            fetch('/project/')
+                .then(response => response.json())
+                .then(data => {
+                    allProjects = data;
+                    populateTable(allProjects);
+    
+                    // Populate manager select options
+                    const managerSelect = document.getElementById('managerFilter');
+                    const managerIds = [...new Set(data.map(project => project.manager_id))];
+                    managerIds.forEach(managerId => {
+                        const option = document.createElement('option');
+                        option.value = managerId;
+                        option.textContent = managerId;
+                        managerSelect.appendChild(option);
+                    });
+    
+                    // Add event listener for managerFilter
+                    managerFilter.addEventListener('input', filterProjects);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
+
